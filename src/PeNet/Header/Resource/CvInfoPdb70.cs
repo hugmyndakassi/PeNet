@@ -28,7 +28,7 @@ namespace PeNet.Header.Resource
         /// </summary>
         public Guid Signature
         {
-            get => PeFile.AsSpan(Offset + 4, 16).ToGuid();
+            get => new Guid(PeFile.AsSpan(Offset + 4, 16));
             set => PeFile.WriteBytes(Offset + 4, value.ToByteArray());
         }
 
